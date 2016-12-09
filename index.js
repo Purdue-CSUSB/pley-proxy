@@ -7,7 +7,7 @@ app.post('/new-app', (req, res, next) => {
     res.status(400).end();
   }
 
-  const url = 'bart.usb.cs.purdue.edu:3000';
+  const url = 'bart.usb.cs.purdue.edu:3000/new-app';
 
   request.post(url, {
     form: {
