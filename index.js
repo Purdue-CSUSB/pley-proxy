@@ -2,10 +2,21 @@ const express = require('express');
 const app = express();
 const request = require('request');
 
+// Set up bodyParser.
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 app.post('/new-app', (req, res, next) => {
   if (!req.body.githubURL || !req.body.subdomain || !req.body.userId) {
-    res.status(400).end();
+    console.log('POST request is missing something important');
+    console.log('req.body', req.body);
+    return res.status(400).end();
   }
+
+  console.log('got data in /new-app');
+  console.log('req.body.githubURL', req.body.githubURL);
+  console.log('req.body.subdomain', req.body.subdomain);
+  console.log('req.body.userId', req.body.userId);
 
   const url = 'bart.usb.cs.purdue.edu:3000/new-app';
 
