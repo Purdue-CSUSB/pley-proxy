@@ -37,6 +37,25 @@ app.post('/new-app', (req, res, next) => {
   });
 });
 
+app.get('/app-data', (req, res, next) => {
+  if (!req.query.userId) {
+    console.log('GET request is missing something important');
+    return res.status(400).end();
+  }
+
+  const url = 'http://bart.usb.cs.purdue.edu:3000/app-data?userId=' + req.query.userId;
+
+  request.get(url, (error, response, body) => {
+    if (!error) {
+      console.log('response body', body);
+      res.status(200).send(response.body);
+    } else {
+      console.log('Error!', error);
+      res.status(500).end();
+    }
+  });
+});
+
 app.listen(8080, () => {
   console.log("I'm alive!");
 });
