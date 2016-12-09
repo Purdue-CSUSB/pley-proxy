@@ -18,7 +18,7 @@ app.post('/new-app', (req, res, next) => {
   console.log('req.body.subdomain', req.body.subdomain);
   console.log('req.body.userId', req.body.userId);
 
-  const url = 'bart.usb.cs.purdue.edu:3000/new-app';
+  const url = 'http://bart.usb.cs.purdue.edu:3000/new-app';
 
   request.post(url, {
     form: {
