@@ -28,8 +28,10 @@ app.post('/new-app', (req, res, next) => {
     }
   }, (error, response, body) => {
     if (!error) {
+      console.log('response body', body);
       res.status(200).end();
     } else {
+      console.log('Error!', error);
       res.status(500).end();
     }
   });
