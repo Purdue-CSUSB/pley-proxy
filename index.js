@@ -24,6 +24,6 @@ app.post('/new-app', (req, res, next) => {
   });
 });
 
-app.listen(1337, () => {
+app.listen(8080, () => {
   console.log("I'm alive!");
 });
